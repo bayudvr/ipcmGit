@@ -118,8 +118,8 @@
 			dataType:'json',
 			success:function(data)
 			{
-				$('#tdata').DataTable();
 				$('tbody').html(data);
+				$('#tdata').DataTable();
 				toastr.success('Data berhasil ditampilkan');
 			}
 		});
@@ -188,8 +188,8 @@
 
 								if(response == '"done"'){
 
-									toastr.succcess(nama+' berhasil ditampilkan');
 									loadData();
+									toastr.success(nama+' berhasil ditampilkan');
 								}else{
 
 									toastr.error('Ada kesalahan');
@@ -227,8 +227,9 @@
 
 								if(response == '"done"'){
 
-									toastr.succcess(nama+' berhasil disembunyikan');
 									loadData();
+									
+									toastr.success(nama+' berhasil disembunyikan');
 								}else{
 
 									toastr.error('Ada kesalahan');
