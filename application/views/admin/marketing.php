@@ -171,6 +171,7 @@
                
                $('#data').html(data);
                $('#tdata').DataTable();
+               toastr.success('Data berhasil ditampilkan');
            }
         });
     }
@@ -228,9 +229,8 @@
                 processData:false,
                 success:function(response){
                   if(response == '"done"'){
-                    swal('','Data marketing berhasil ditampilkan','success').then(function(){
-                      loadData();
-                    });
+                    toastr.success('Data berhasil diaktifkan');
+                    loadData();
                   }else{
 
                     swal('','Ada kesalahan','error');
@@ -266,9 +266,8 @@
                 processData:false,
                 success:function(response){
                   if(response == '"done"'){
-                    swal('','Data marketing berhasil disembunyikan','success').then(function(){
-                      loadData();
-                    });
+                    toastr.success('Data berhasil disembunyikan');
+                    loadData();
                   }else{
 
                     swal('','Ada kesalahan','error');
