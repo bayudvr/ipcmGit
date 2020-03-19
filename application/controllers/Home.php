@@ -23,6 +23,7 @@ class Home extends CI_Controller{
 		$data['galeri_produk'] = $this->m->getData('galeri_produk');
 		$data['plus'] = $this->m->where('keunggulan',array('stat'=>'Show'));
 		$data['galeri'] = $this->m->where('galeri',array('stat'=>'Show'));
+		$data['mtools'] = $this->m->single('SELECT * FROM marketing_tools where stat = "Show" limit 4');
 		$data['jejaring']  = $this->m->single('SELECT * FROM testimoni where stat = "Show" limit 3');
 		$data['tim'] = $this->m->where('tim',array('stat'=>'Show'));
 		$data['blog'] = $this->m->single('SELECT * FROM artikel where stat = "Show" order by tanggal DESC limit 4');
