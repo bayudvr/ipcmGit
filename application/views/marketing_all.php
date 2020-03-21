@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>List Jejaring</title>
+	<title>List Marketing</title>
 
 	<?php $this->load->view('layout/plugin.php'); ?>
 
@@ -72,8 +72,7 @@
 				  	<li class="py-2 mr-5"><a href="<?php echo base_url() ?>">Beranda</a></li>
 					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#tentang">Tentang kami</a></li>
 					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#pelayanan">Pelayanan</a></li>
-					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#galeri">Galeri</a></li>
-					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#mtools">COVID-19</a></li>
+					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#galeri">Galeri</a></li> 
 					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#blog">Artikel</a></li>
 					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#kontak">Kontak</a></li>
 				</ul>
@@ -86,7 +85,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-4">
 					<div class="breadcrumb_inner">
-						<h3>List Jejaring</h3>
+						<h3>List Marketing</h3>
 					</div>
 				</div>
 			</div>
@@ -94,24 +93,24 @@
 		<div class="breadcrumb_block" style="background: #E52929">
 			<ul>
 				<li><a href="<?php echo base_url() ?>" title="">home</a></li>
-				<li>List Jejaring</li>
+				<li>List Marketing</li>
 			</ul>
 		</div>
 	</div>
 	<div class="dairy_blog_wrapper clv_section">
 		<div class="container">
 			<div class="dairy_blog_section">
-				<?php foreach($jejaring as $bl){ ?>
+				<?php foreach($mtools as $bl){ ?>
 				
 				<div class="right_blog_section">
 					<div class="right_blog_block">
 						<div class="right_blog_image pl-2">
-							<img src="<?php echo base_url() ?>assets/upload/jejaring/<?php echo $bl->foto; ?>" style="object-fit:contain; width:300px; height: 200px;" alt="image" />
+							<img src="<?php echo base_url() ?>assets/upload/banner/<?php echo $bl->banner; ?>" style="object-fit:contain; height:285px;" alt="image" />
 						</div>
 						<div class="right_blog_content">
-							<h3><a href="#"><?php echo ($bl->nama); ?></a></h3>
-							<p><?php echo word_limiter($bl->testi,10); ?></p>
-							<a href="<?php echo base_url() ?>jejaring/?k=<?php echo urlencode($bl->nama); ?>" target="_blank">read more <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+							<h3><a href="#"><?php echo word_limiter($bl->nama,5); ?></a></h3>
+							<p><?php echo word_limiter($bl->descr,35); ?></p>
+							<a href="<?php echo base_url() ?>marketing/read?k=<?php echo urlencode($bl->nama); ?>" target="_blank">read more <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
 						</div>
 					</div>
 				</div>
@@ -143,7 +142,7 @@
 							<img src="<?php echo base_url() ?>assets/user/images/dairy_underline4.png" alt="image" />
 						</div>
 						<div class="footer_post_section">
-							<?php foreach($artikel as $ar){ ?>
+							<?php foreach($blog as $ar){ ?>
 							<div class="footer_post_slide">
 								<div class="footer_post_image">
 									<img src="<?php echo base_url() ?>assets/upload/artikel/<?php echo $ar->foto; ?>" style="width: 70px; object-fit: contain;" />

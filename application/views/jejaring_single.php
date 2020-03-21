@@ -73,6 +73,7 @@
 					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#tentang">Tentang kami</a></li>
 					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#pelayanan">Pelayanan</a></li>
 					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#galeri">Galeri</a></li>
+					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#mtools">COVID-19</a></li>
 					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#blog">Artikel</a></li>
 					<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#kontak">Kontak</a></li>
 				</ul>
