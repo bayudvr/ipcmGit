@@ -331,8 +331,8 @@
 
     var ext = $('#attach').val().split('.').pop().toLowerCase();
 
-    if(jQuery.inArray(ext, ['zip','rar','7z','cdr']) == -1){
-      swal('','Fomat File Harus ZIP/RAR/7z/Cdr','error');
+    if(jQuery.inArray(ext, ['zip','rar','7z','cdr','jpg','jpeg','png']) == -1){
+      swal('','Fomat File Harus ZIP/RAR/7z/CDR/JPG/JPEG/PNG','error');
       $('#attach').val('');
 
       $('#savebtn').attr('disabled',true);
