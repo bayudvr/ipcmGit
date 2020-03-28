@@ -340,13 +340,13 @@
 												<h5 class="px-5"><?php echo word_limiter($mt->descr,20); ?></h5>
 												<a href="<?php echo base_url() ?>marketing/read?k=<?php echo urlencode($mt->nama);?>" class="shop_btn" target="_blank"><i class="fa fa-eye"></i></a>
 												<a href="<?php echo base_url() ?>assets/upload/file/<?php echo $mt->file; ?>" class="shop_btn" target="_blank"><i class="fa fa-download"></i></a>
-											</div>
+                      </div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-                    </div>        
+          </div>        
 					<?php }else{ ?>
 					<div class="carousel-item">
 						<div class="shop_slider">
@@ -377,8 +377,6 @@
 				</center>
 			</div>
 		</div>
-
-		<!-- Jejaring -->
 		
 		<div class="clv_shop_wrapper clv_section">
 			<div class="container">

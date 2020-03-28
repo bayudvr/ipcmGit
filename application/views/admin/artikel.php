@@ -4,6 +4,7 @@
 	<title>Data Artikel</title>
 
 	<?php $this->load->view('layout/pluginAdmin'); ?>
+	
 </head>
 <body id="page-top">
 	<div id="wrapper">
