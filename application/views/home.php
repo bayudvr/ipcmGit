@@ -324,20 +324,20 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<?php foreach($mtools as $mt){ ?>
-					<div class="col-lg-3 col-md-3">
+				<div class="carousel slide mb-5" data-ride="carousel">
+					<?php foreach($c_mtools as $cmt){ $mainM = $cmt->id;} foreach($mtools as $mt){ if($mt->id == $mainM){ ?>
+					<div class="carousel-item active">
 						<div class="shop_slider">
 							<div class="swiper-container">
-								<div class="swiper-wrapper" style="height: 100%; object-fit: contain;">
+								<div class="swiper-wrapper" style="height: 100%; object-fit: cover;">
 									<div class="swiper-slide">
 										<div class="shop_slide">
 											<div class="item_image">
-												<img src="<?php echo base_url() ?>assets/upload/banner/<?php echo $mt->banner; ?>" style="height: 192px; object-fit: contain;" alt="image" class="img-fluid" />
+												<img src="<?php echo base_url() ?>assets/upload/banner/<?php echo $mt->banner; ?>" style="height: 250px; object-fit: contain;" alt="image" class="img-fluid" />
 											</div>
 											<h5><?php echo $mt->nama; ?></h5>
 											<div class="item_overlay">
-												<h5 class="px-5"><?php echo word_limiter($mt->descr,5); ?></h5>
+												<h5 class="px-5"><?php echo word_limiter($mt->descr,20); ?></h5>
 												<a href="<?php echo base_url() ?>marketing/read?k=<?php echo urlencode($mt->nama);?>" class="shop_btn" target="_blank"><i class="fa fa-eye"></i></a>
 												<a href="<?php echo base_url() ?>assets/upload/file/<?php echo $mt->file; ?>" class="shop_btn" target="_blank"><i class="fa fa-download"></i></a>
 											</div>
@@ -346,9 +346,31 @@
 								</div>
 							</div>
 						</div>
-                    </div>
-        
-					<?php } ?>
+                    </div>        
+					<?php }else{ ?>
+					<div class="carousel-item">
+						<div class="shop_slider">
+							<div class="swiper-container">
+								<div class="swiper-wrapper" style="height: 100%; object-fit: cover;">
+									<div class="swiper-slide">
+										<div class="shop_slide">
+											<div class="item_image">
+												<img src="<?php echo base_url() ?>assets/upload/banner/<?php echo $mt->banner; ?>" style="height: 250px; object-fit: contain;" alt="image" class="img-fluid" />
+											</div>
+											<h5><?php echo $mt->nama; ?></h5>
+											<div class="item_overlay">
+												<h5 class="px-5"><?php echo word_limiter($mt->descr,20); ?></h5>
+												<a href="<?php echo base_url() ?>marketing/read?k=<?php echo urlencode($mt->nama);?>" class="shop_btn" target="_blank"><i class="fa fa-eye"></i></a>
+												<a href="<?php echo base_url() ?>assets/upload/file/<?php echo $mt->file; ?>" class="shop_btn" target="_blank"><i class="fa fa-download"></i></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>        
+					<?php } 
+					} ?>
 				</div>
 				<center>
 					<a href="<?php echo base_url() ?>marketing/list" target="_blank"><button type="" class="btn btn-lg btn-danger">Lihat Selengkapnya <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button></a>
