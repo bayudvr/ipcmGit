@@ -90,7 +90,7 @@
 						<li class="py-2 mr-5"><a href="#tentang">Tentang kami</a></li>
 						<li class="py-2 mr-5"><a href="#pelayanan">Pelayanan</a></li>
 						<li class="py-2 mr-5"><a href="#galeri">Galeri</a></li>
-						<li class="py-2 mr-5"><a href="#mtools">Marketing Tools</a></li>
+						<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#mtools">COVID-19</a></li>
 						<li class="py-2 mr-5"><a href="#blog">Artikel</a></li>
 						<li class="py-2 mr-5"><a href="#kontak">Kontak</a></li>
 					</ul>
@@ -217,7 +217,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- Dairy Service -->
+		Dairy Service
 		<div class="dairy_service_wrapper clv_section">
 			<div class="container">
 				<div class="row">
@@ -312,44 +312,71 @@
 				</div>
 			</div>
 		</div>
-		<div id="mtools" class="clv_shop_wrapper clv_section" style="background: rgba(170,170,170,0.5);">
+		<!-- Marketing Tools -->
+
+		<div id="mtools" style="background: rgba(170,170,170,0.5);" class="clv_shop_wrapper clv_section">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-lg-6 col-md-6">
 						<div class="clv_heading">
-							<h3>Marketing Tools</h3>
+							<h3>COVID-19</h3>
 							<div class="clv_underline"><img src="<?php echo base_url() ?>assets/user/images/dairy_underline3.png" alt="image" /></div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<?php foreach($mtools as $mt){ ?>
-					<div class="col-lg-3 col-md-3">
+				<div class="carousel slide mb-5" data-ride="carousel">
+					<?php foreach($c_mtools as $cmt){ $mainM = $cmt->id;} foreach($mtools as $mt){ if($mt->id == $mainM){ ?>
+					<div class="carousel-item active">
 						<div class="shop_slider">
 							<div class="swiper-container">
-								<div class="swiper-wrapper">
+								<div class="swiper-wrapper" style="height: 100%; object-fit: cover;">
 									<div class="swiper-slide">
 										<div class="shop_slide">
 											<div class="item_image">
-												<img src="<?php echo base_url() ?>assets/upload/banner/<?php echo $mt->banner; ?>" style="height: 192px; object-fit: contain;" alt="image" class="img-fluid" />
+												<img src="<?php echo base_url() ?>assets/upload/banner/<?php echo $mt->banner; ?>" style="height: 250px; object-fit: contain;" alt="image" class="img-fluid" />
 											</div>
 											<h5><?php echo $mt->nama; ?></h5>
 											<div class="item_overlay">
-												<h5 class="px-5"><?php echo word_limiter($mt->descr,5); ?></h5>
-												<a href="<?php echo base_url() ?>assets/upload/attach/<?php echo $mt->file; ?>" class="shop_btn" target="_blank">download</a>
-											</div>
-											
+												<h5 class="px-5"><?php echo word_limiter($mt->descr,20); ?></h5>
+												<a href="<?php echo base_url() ?>marketing/read?k=<?php echo urlencode($mt->nama);?>" class="shop_btn" target="_blank"><i class="fa fa-eye"></i></a>
+												<a href="<?php echo base_url() ?>assets/upload/file/<?php echo $mt->file; ?>" class="shop_btn" target="_blank"><i class="fa fa-download"></i></a>
+                      </div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<?php } ?>
+          </div>        
+					<?php }else{ ?>
+					<div class="carousel-item">
+						<div class="shop_slider">
+							<div class="swiper-container">
+								<div class="swiper-wrapper" style="height: 100%; object-fit: cover;">
+									<div class="swiper-slide">
+										<div class="shop_slide">
+											<div class="item_image">
+												<img src="<?php echo base_url() ?>assets/upload/banner/<?php echo $mt->banner; ?>" style="height: 250px; object-fit: contain;" alt="image" class="img-fluid" />
+											</div>
+											<h5><?php echo $mt->nama; ?></h5>
+											<div class="item_overlay">
+												<h5 class="px-5"><?php echo word_limiter($mt->descr,20); ?></h5>
+												<a href="<?php echo base_url() ?>marketing/read?k=<?php echo urlencode($mt->nama);?>" class="shop_btn" target="_blank"><i class="fa fa-eye"></i></a>
+												<a href="<?php echo base_url() ?>assets/upload/file/<?php echo $mt->file; ?>" class="shop_btn" target="_blank"><i class="fa fa-download"></i></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>        
+					<?php } 
+					} ?>
 				</div>
+				<center>
+					<a href="<?php echo base_url() ?>marketing/list" target="_blank"><button type="" class="btn btn-lg btn-danger">Lihat Selengkapnya <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button></a>
+				</center>
 			</div>
 		</div>
-		<!-- Testi2 -->
 		
 		<div class="clv_shop_wrapper clv_section">
 			<div class="container">
@@ -390,7 +417,6 @@
 					</center>
 				</div>
 			</div>
-		</div>
 		</div>
 		<!-- Blog -->
 		<div class="dairy_blog_wrapper clv_section">
@@ -535,7 +561,7 @@
 			</div>
 		</div>
 		<!-- Footer -->
-		<div class="clv_footer_wrapper clv_section" id="kontak" style="background:url('../assets/img/bgg.jpg');background-size:cover;">
+		<div class="clv_footer_wrapper clv_section" id="kontak" style="background:url('./assets/img/bgg.jpg');background-size:cover;">
 			<div class="container">
 				<div class="row" style="padding-top: 50px;">
 					<div class="col-md-3 col-lg-3">
@@ -688,6 +714,14 @@
 		$('#registrasi').modal('show');
 		login('login');
 		
+	}
+
+	function lihatfile(id){
+
+		$.confirm({
+			title:'Banner',
+			content:'url: <?php echo base_url() ?>data/bannerMarketing/'+id
+		});
 	}
 
 	function login(arr){

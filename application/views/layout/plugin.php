@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/user/css/range.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/user/css/nice-select.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/user/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 
     <!-- JS -->
 
@@ -45,3 +46,4 @@
 	<script src="<?php echo base_url() ?>assets/user/js/revolution.extension.video.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/user/js/custom.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
