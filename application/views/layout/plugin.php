@@ -26,6 +26,7 @@
     <!-- JS -->
 
     <script src="<?php echo base_url() ?>assets/user/js/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 	<script src="<?php echo base_url() ?>assets/user/js/bootstrap.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/user/js/swiper.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/user/js/magnific-popup.min.js"></script>

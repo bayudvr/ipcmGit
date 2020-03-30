@@ -63,6 +63,121 @@
 			margin-right: 20px;
 		}
 
+		.slick-slide {
+			margin: 0px 20px;
+		}
+
+		.slick-slide img {
+			width: 100%;
+		}
+
+		.slick-slider
+		{
+			position: relative;
+			display: block;
+			box-sizing: border-box;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+					user-select: none;
+			-webkit-touch-callout: none;
+			-khtml-user-select: none;
+			-ms-touch-action: pan-y;
+				touch-action: pan-y;
+			-webkit-tap-highlight-color: transparent;
+		}
+
+		.slick-list
+		{
+			position: relative;
+			display: block;
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+		}
+		.slick-list:focus
+		{
+			outline: none;
+		}
+		.slick-list.dragging
+		{
+			cursor: pointer;
+			cursor: hand;
+		}
+
+		.slick-slider .slick-track,
+		.slick-slider .slick-list
+		{
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+				-ms-transform: translate3d(0, 0, 0);
+				-o-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+		}
+
+		.slick-track
+		{
+			position: relative;
+			top: 0;
+			left: 0;
+			display: block;
+		}
+		.slick-track:before,
+		.slick-track:after
+		{
+			display: table;
+			content: '';
+		}
+		.slick-track:after
+		{
+			clear: both;
+		}
+		.slick-loading .slick-track
+		{
+			visibility: hidden;
+		}
+
+		.slick-slide
+		{
+			display: none;
+			float: left;
+			height: 100%;
+			min-height: 1px;
+		}
+		[dir='rtl'] .slick-slide
+		{
+			float: right;
+		}
+		.slick-slide img
+		{
+			display: block;
+		}
+		.slick-slide.slick-loading img
+		{
+			display: none;
+		}
+		.slick-slide.dragging img
+		{
+			pointer-events: none;
+		}
+		.slick-initialized .slick-slide
+		{
+			display: block;
+		}
+		.slick-loading .slick-slide
+		{
+			visibility: hidden;
+		}
+		.slick-vertical .slick-slide
+		{
+			display: block;
+			height: auto;
+			border: 1px solid transparent;
+		}
+		.slick-arrow.slick-hidden {
+			display: none;
+		}
+
 	</style>
 
 </head>
@@ -149,7 +264,7 @@
 
 		</div>
 		<!--About-->
-		<div class="dairy_about_wrapper clv_section">
+		<div class="dairy_about_wrapper clv_section" id="tentang">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-lg-6 col-md-6">
@@ -159,7 +274,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="dairy_about_inner" id="tentang">
+				<div class="dairy_about_inner">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="about_img">
@@ -217,7 +332,6 @@
 				</div>
 			</div>
 		</div>
-		Dairy Service
 		<div class="dairy_service_wrapper clv_section">
 			<div class="container">
 				<div class="row">
@@ -324,98 +438,66 @@
 						</div>
 					</div>
 				</div>
-				<div class="carousel slide mb-5" data-ride="carousel">
-					<?php foreach($c_mtools as $cmt){ $mainM = $cmt->id;} foreach($mtools as $mt){ if($mt->id == $mainM){ ?>
-					<div class="carousel-item active">
-						<div class="shop_slider">
-							<div class="swiper-container">
-								<div class="swiper-wrapper" style="height: 100%; object-fit: cover;">
-									<div class="swiper-slide">
-										<div class="shop_slide">
-											<div class="item_image">
+				<div class="container">
+					<section class="mtools slider">
+						<?php foreach($mtools as $mt){ ?>
+							<div class="slide">
+								<div class="shop_slider">
+									<div class="swiper-container">
+										<div class="shop_slide" style="background:url('./assets/upload/banner/<?php echo $mt->banner; ?>'); background-size:contain; height:250px;">
+											<!-- <div class="item_image">
 												<img src="<?php echo base_url() ?>assets/upload/banner/<?php echo $mt->banner; ?>" style="height: 250px; object-fit: contain;" alt="image" class="img-fluid" />
-											</div>
-											<h5><?php echo $mt->nama; ?></h5>
+											</div> -->
 											<div class="item_overlay">
-												<h5 class="px-5"><?php echo word_limiter($mt->descr,20); ?></h5>
+												<h5 class="px-5"><?php echo $mt->nama; ?></h5>
 												<a href="<?php echo base_url() ?>marketing/read?k=<?php echo urlencode($mt->nama);?>" class="shop_btn" target="_blank"><i class="fa fa-eye"></i></a>
-												<a href="<?php echo base_url() ?>assets/upload/file/<?php echo $mt->file; ?>" class="shop_btn" target="_blank"><i class="fa fa-download"></i></a>
-                      </div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-          </div>        
-					<?php }else{ ?>
-					<div class="carousel-item">
-						<div class="shop_slider">
-							<div class="swiper-container">
-								<div class="swiper-wrapper" style="height: 100%; object-fit: cover;">
-									<div class="swiper-slide">
-										<div class="shop_slide">
-											<div class="item_image">
-												<img src="<?php echo base_url() ?>assets/upload/banner/<?php echo $mt->banner; ?>" style="height: 250px; object-fit: contain;" alt="image" class="img-fluid" />
-											</div>
-											<h5><?php echo $mt->nama; ?></h5>
-											<div class="item_overlay">
-												<h5 class="px-5"><?php echo word_limiter($mt->descr,20); ?></h5>
-												<a href="<?php echo base_url() ?>marketing/read?k=<?php echo urlencode($mt->nama);?>" class="shop_btn" target="_blank"><i class="fa fa-eye"></i></a>
-												<a href="<?php echo base_url() ?>assets/upload/file/<?php echo $mt->file; ?>" class="shop_btn" target="_blank"><i class="fa fa-download"></i></a>
+												<a href="<?php echo base_url() ?>assets/upload/attach/<?php echo $mt->file; ?>" class="shop_btn" target="_blank"><i class="fa fa-download"></i></a>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-                    </div>        
-					<?php } 
-					} ?>
+						<?php } ?>				
+					</section>
 				</div>
 				<center>
 					<a href="<?php echo base_url() ?>marketing/list" target="_blank"><button type="" class="btn btn-lg btn-danger">Lihat Selengkapnya <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button></a>
 				</center>
 			</div>
 		</div>
-		
-		<div class="clv_shop_wrapper clv_section">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-6 col-md-6">
-						<div class="clv_heading">
-							<h3>Jejaring Klinik</h3>
-							<div class="clv_underline"><img src="<?php echo base_url() ?>assets/user/images/dairy_underline3.png" alt="image" /></div>
+
+		<div  style="background:url('./assets/img/JejaringBG.jpg'); background-size:cover;">
+			<div class="dairy_service_wrapper clv_section" style="background:rgba(0,0,0,.7);background-size:cover;">
+					<div class="container row">
+						<div class="col-lg-6 col-md-6">
+							<div class="service_content">
+								<div class="service_heading">
+									<h3 style="color:white;">Jejaring Klinik</h3>
+									<div class="clv_underline"><img src="<?php echo base_url() ?>assets/user/images/dairy_underline2.png" alt="image" /></div>
+									<p>Jejaring IMANI PRIMARY CARE</p>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<?php foreach($jejaring as $jr){ ?>
-					<div class="col-lg-4 col-md-4">
-						<div class="shop_slider">
-							<div class="swiper-container">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide">
-										<div class="shop_slide">
-											<div class="item_image">
-												<img src="<?php echo base_url() ?>assets/upload/jejaring/<?php echo $jr->foto; ?>" style="height: 192px; object-fit: contain;" alt="image" class="img-fluid" />
-											</div>
-											<h5><?php echo $jr->nama; ?></h5>
-											<div class="item_overlay">
-												<h5 class="px-5"><?php echo word_limiter($jr->testi,5); ?></h5>
-												<a href="<?php echo base_url() ?>jejaring/?k=<?php echo urlencode($jr->nama); ?>" class="shop_btn" target="_blank">see more</a>
-											</div>
+					
+						<section class="jejaring slider mb-5 col-md-6 col-lg-6">
+							<?php foreach($jejaring as $jr){ ?>
+							<div class="slide">
+								<div class="shop_slider">
+									<div class="shop_slide" style="background:url('./assets/upload/jejaring/<?php echo $jr->foto; ?>');height:200px;background-size:cover;">
+										<div class="item_overlay">
+											<h7 style="color:white;" class="px-5"><?php echo $jr->nama; ?></h7>
+											<a href="<?php echo base_url() ?>jejaring/?k=<?php echo urlencode($jr->nama); ?>" class="shop_btn" target="_blank">see more</a>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-                    </div>
-        
-					<?php } ?>
+				
+							<?php } ?>
+						</section>
+					</div>
 					<center>
 						<a href="<?php echo base_url() ?>jejaring/list" target="_blank"><button type="" class="btn btn-lg btn-danger">Lihat Selengkapnya <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button></a>
 					</center>
-				</div>
 			</div>
 		</div>
 		<!-- Blog -->
@@ -467,10 +549,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<section class="team slider">
 					<?php foreach($tim as $td){ ?>
 					
-					<div class="col-lg-3 col-md-3">
+					<div class="slide">
 						<div class="dairy_team_slider">
 							<div class="swiper-container">
 								<div class="swiper-wrapper">
@@ -504,60 +586,7 @@
 
 					<?php } ?>
 					
-				</div>
-			</div>
-		</div>
-		<!-- Partners -->
-		<div class="clv_partner_wrapper clv_section" id="partner">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-					    <div class="testimonial_content">
-							<h3>Partnership</h3>
-							<img src="<?php echo base_url() ?>assets/user/images/dairy_underline4.png" alt="image" />
-						</div>
-						<div class="partner_slider">
-							<div class="swiper-container">
-								<div class="swiper-wrapper">								<div class="swiper-slide">
-										<div class="partner_slide">
-											<div class="partner_image">
-												<marquee behaviour="scroll" id="logoPartner">
-													<span>
-														<img src="<?php echo base_url() ?>assets/img/logo.png" style="object-fit: cover;" height="100">
-													</span>
-													<span>
-														<img src="<?php echo base_url() ?>assets/upload/partner/budiasih.jpg" style="object-fit: cover;" height="100">
-													</span>
-													<span>
-														<img src="<?php echo base_url() ?>assets/upload/partner/kaaa.jpg" style="object-fit: cover;" height="100">
-													</span>
-													<span>
-														<img src="<?php echo base_url() ?>assets/upload/partner/kam.jpg" style="object-fit: cover;" height="100">
-													</span>
-													<span>
-														<img src="<?php echo base_url() ?>assets/upload/partner/kasb.jpg" style="object-fit: cover;" height="100">
-													</span>
-													<span>
-														<img src="<?php echo base_url() ?>assets/upload/partner/kithsm.jpg" style="object-fit: cover;" height="100">
-													</span>
-													<span>
-														<img src="<?php echo base_url() ?>assets/upload/partner/kmc.jpg" style="object-fit: cover;" height="100">
-													</span>
-													<span>
-														<img src="<?php echo base_url() ?>assets/upload/partner/kpim.jpg" style="object-fit: cover;" height="100">
-													</span>
-													<span>
-														<img src="<?php echo base_url() ?>assets/upload/partner/nh.jpg" style="object-fit: cover;" height="100">
-													</span>
-												</marquee>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				</section>
 			</div>
 		</div>
 		<!-- Footer -->
@@ -706,6 +735,69 @@
 					}
 				}
 			});
+		});
+
+		$('.mtools').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 10000,
+			arrows: false,
+			dots: false,
+			pauseOnHover: false,
+			responsive: [{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			}, {
+				breakpoint: 520,
+				settings: {
+					slidesToShow: 1
+				}
+			}]
+		});
+
+		$('.team').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 11000,
+			arrows: false,
+			dots: false,
+			pauseOnHover: false,
+			responsive: [{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			}, {
+				breakpoint: 520,
+				settings: {
+					slidesToShow: 1
+				}
+			}]
+		});
+
+		$('.jejaring').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 11000,
+			arrows: false,
+			dots: false,
+			pauseOnHover: false,
+			responsive: [{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			}, {
+				breakpoint: 520,
+				settings: {
+					slidesToShow: 1
+				}
+			}]
 		});
 	});
 	
