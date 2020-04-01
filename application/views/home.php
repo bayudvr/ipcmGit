@@ -483,7 +483,7 @@
 					<section class="jejaring slider mb-5 col-md-6 col-lg-6">
 						<?php foreach($jejaring as $jr){ ?>
 						<div class="slide mr-5" style="background: white; width: 150px;">
-							<img src="<?php echo base_url() ?>assets/upload/jejaring/<?php echo $jr->foto; ?>" style="width: 150px; object-fit: contain;">
+							<img src="<?php echo base_url() ?>assets/upload/jejaring/<?php echo $jr->foto; ?>" style="width: 150px; object-fit: cover;">
 								<p style="color:black; font-size: 1rem;" class="px-5"><?php echo $jr->nama; ?></p>
 								<a href="<?php echo base_url() ?>jejaring/?k=<?php echo urlencode($jr->nama); ?>" class="shop_btn" target="_blank">see more</a>
 						</div>
