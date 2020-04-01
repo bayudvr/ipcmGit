@@ -206,6 +206,7 @@
 						<li class="py-2 mr-5"><a href="#pelayanan">Pelayanan</a></li>
 						<li class="py-2 mr-5"><a href="#galeri">Galeri</a></li>
 						<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#mtools">COVID-19</a></li>
+						<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#jejaring">Jejaring</a></li>
 						<li class="py-2 mr-5"><a href="#blog">Artikel</a></li>
 						<li class="py-2 mr-5"><a href="#kontak">Kontak</a></li>
 					</ul>
@@ -466,38 +467,30 @@
 			</div>
 		</div>
 
-		<div  style="background:url('./assets/img/JejaringBG.jpg'); background-size:cover;">
+		<div id="jejaring"  style="background:url('./assets/img/JejaringBG.jpg'); background-size:cover;">
 			<div class="dairy_service_wrapper clv_section" style="background:rgba(0,0,0,.7);background-size:cover;">
-					<div class="container row">
-						<div class="col-lg-6 col-md-6">
-							<div class="service_content">
-								<div class="service_heading">
-									<h3 style="color:white;">Jejaring Klinik</h3>
-									<div class="clv_underline"><img src="<?php echo base_url() ?>assets/user/images/dairy_underline2.png" alt="image" /></div>
-									<p>Jejaring IMANI PRIMARY CARE</p>
-								</div>
+				<div class="container row">
+					<div class="col-lg-6 col-md-6">
+						<div class="service_content">
+							<div class="service_heading">
+								<h3 style="color:white;">Jejaring Klinik</h3>
+								<div class="clv_underline"><img src="<?php echo base_url() ?>assets/user/images/dairy_underline2.png" alt="image" /></div>
+								<p style="color:white;">Jejaring IMANI PRIMARY CARE</p>
 							</div>
 						</div>
-					
-						<section class="jejaring slider mb-5 col-md-6 col-lg-6">
-							<?php foreach($jejaring as $jr){ ?>
-							<div class="slide">
-								<div class="shop_slider">
-									<div class="shop_slide" style="background:url('./assets/upload/jejaring/<?php echo $jr->foto; ?>');height:200px;background-size:cover;">
-										<div class="item_overlay">
-											<h7 style="color:white;" class="px-5"><?php echo $jr->nama; ?></h7>
-											<a href="<?php echo base_url() ?>jejaring/?k=<?php echo urlencode($jr->nama); ?>" class="shop_btn" target="_blank">see more</a>
-										</div>
-									</div>
-								</div>
-							</div>
-				
-							<?php } ?>
-						</section>
 					</div>
-					<center>
-						<a href="<?php echo base_url() ?>jejaring/list" target="_blank"><button type="" class="btn btn-lg btn-danger">Lihat Selengkapnya <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button></a>
-					</center>
+				
+					<section class="jejaring slider mb-5 col-md-6 col-lg-6">
+						<?php foreach($jejaring as $jr){ ?>
+						<div class="slide mr-5" style="background: white; width: 150px;">
+							<img src="<?php echo base_url() ?>assets/upload/jejaring/<?php echo $jr->foto; ?>" style="width: 150px; object-fit: contain;">
+								<p style="color:black; font-size: 1rem;" class="px-5"><?php echo $jr->nama; ?></p>
+								<a href="<?php echo base_url() ?>jejaring/?k=<?php echo urlencode($jr->nama); ?>" class="shop_btn" target="_blank">see more</a>
+						</div>
+			
+						<?php } ?>
+					</section>
+				</div>
 			</div>
 		</div>
 		<!-- Blog -->
