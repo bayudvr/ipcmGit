@@ -178,10 +178,27 @@
 			display: none;
 		}
 
+		.waMain{
+			display:block;
+			line-height:50px;
+			position:fixed;
+			right:30px;
+			bottom:30px;
+			z-index: 2;
+		}
+
+		.waMain img{			
+			height: 60px;
+			object-fit: contain;
+		}
+
 	</style>
 
 </head>
 <body>
+	<a href="https://linktr.ee/ipcnetwork" class="waMain" target="_blank">
+		<img src="<?php echo base_url()?>assets/img/IconWa.png">
+	</a>
 	<div class="preloader_wrapper">
 		<div class="preloader_inner">
 			<img src="<?php echo base_url() ?>assets/img/logow.png" style="width: 300px; object-fit:contain;" alt="image" />
@@ -294,6 +311,37 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="jejaring"  style="background:url('./assets/img/JejaringBG.jpg'); background-size:cover;">
+			<div class="dairy_service_wrapper clv_section" style="background:rgba(0,0,0,.7);background-size:cover;">
+				<div class="container row">
+					<div class="col-lg-6 col-md-6">
+						<div class="service_content">
+							<div class="service_heading">
+								<h3 style="color:white;" class="ml-3">Jejaring Klinik</h3>
+								<div class="clv_underline ml-3"><img src="<?php echo base_url() ?>assets/user/images/dairy_underline2.png" alt="image" /></div>
+								<p style="color:white;" class="ml-3">Jejaring IMANI PRIMARY CARE</p>
+							</div>
+						</div>
+					</div>
+				
+					<section class="jejaring slider mb-5 col-md-6 col-lg-6">
+						<?php foreach($jejaring as $jr){ ?>
+						<div class="slide">
+							<div>
+								<img src="<?php echo base_url() ?>assets/upload/jejaring/<?php echo $jr->foto; ?>" style="height: 150px; width: 150px; object-fit: cover; border-radius: 20px;" class="mb-1">								
+							</div>
+							<div>
+								<h5 style="width: 100%; color:white;" class="mb-2"><?php echo $jr->nama; ?></h5>
+								<a href="<?php echo base_url() ?>jejaring/?k=<?php echo urlencode($jr->nama); ?>" class="btn btn-info" target="_blank"><i class="fa fa-eye"></i></a>
+								<a href="https://api.whatsapp.com/send?phone=<?php echo $jr->kontak; ?>&text=Assalamualaikum%2c%20Saya%20ingin%20bertanya%0aNama%20%3a%20%0aNo%20RM%20%3a%0aNo%20BPJS%20%3aKeluhan%20%3a&source=&data=&app_absent=" class="btn btn-success" target="_blank"><i class="fa fa-whatsapp"></i></a>
+							</div>
+						</div>			
+						<?php } ?>
+					</section>
 				</div>
 			</div>
 		</div>
@@ -467,32 +515,6 @@
 			</div>
 		</div>
 
-		<div id="jejaring"  style="background:url('./assets/img/JejaringBG.jpg'); background-size:cover;">
-			<div class="dairy_service_wrapper clv_section" style="background:rgba(0,0,0,.7);background-size:cover;">
-				<div class="container row">
-					<div class="col-lg-6 col-md-6">
-						<div class="service_content">
-							<div class="service_heading">
-								<h3 style="color:white;">Jejaring Klinik</h3>
-								<div class="clv_underline"><img src="<?php echo base_url() ?>assets/user/images/dairy_underline2.png" alt="image" /></div>
-								<p style="color:white;">Jejaring IMANI PRIMARY CARE</p>
-							</div>
-						</div>
-					</div>
-				
-					<section class="jejaring slider mb-5 col-md-6 col-lg-6">
-						<?php foreach($jejaring as $jr){ ?>
-						<div class="slide mr-5" style="background: white; width: 150px;">
-							<img src="<?php echo base_url() ?>assets/upload/jejaring/<?php echo $jr->foto; ?>" style="width: 150px; object-fit: cover;">
-								<p style="color:black; font-size: 1rem;" class="px-5"><?php echo $jr->nama; ?></p>
-								<a href="<?php echo base_url() ?>jejaring/?k=<?php echo urlencode($jr->nama); ?>" class="shop_btn" target="_blank">see more</a>
-						</div>
-			
-						<?php } ?>
-					</section>
-				</div>
-			</div>
-		</div>
 		<!-- Blog -->
 		<div class="dairy_blog_wrapper clv_section">
 			<div class="container">
@@ -578,7 +600,7 @@
 					</div>
 
 					<?php } ?>
-					
+
 				</section>
 			</div>
 		</div>
@@ -691,12 +713,11 @@
 
 					if(response == '"done"'){
 
-						swal('Assalamualaikum','','success').then(function(){
-							window.location  = '<?php echo base_url() ?>login/verifikasi'
-						});
+						toastr.success('Assalamualaikum','Login Sukses');
+						window.location  = '<?php echo base_url() ?>login/verifikasi';
 					}else{
 
-						alert('Informasi login yang dimasukkan salah');
+						toastr.warning('Informasi login yang dimasukkan salah');
 					}
 				}
 			});

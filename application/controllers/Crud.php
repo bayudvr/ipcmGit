@@ -675,6 +675,8 @@ class Crud extends CI_Controller{
 
 		move_uploaded_file($_FILES['foto']['tmp_name'], $des);
 
+		$this->resizeImg($new_name,'./assets/upload/slider/');
+
 		$data = array(
 			'foto'=>$new_name,
 			'judul'=>$this->input->post('judul'),
@@ -717,6 +719,7 @@ class Crud extends CI_Controller{
 		}
 
 		move_uploaded_file($_FILES['foto']['tmp_name'], $des);
+		$this->resizeImg($new_name,'/assets/upload/slider/');
 
 		$qu = $this->m->update('slider',array('foto'=>$new_name),array('id'=>$id));
 
@@ -1033,7 +1036,8 @@ class Crud extends CI_Controller{
 	    $data = array(
 	        'foto'=>$foto,
 	        'nama'=>$this->input->post('nama'),
-	        'testi'=>$this->input->post('desc'),
+			'testi'=>$this->input->post('desc'),
+			'kontak'=>$this->input->post('kontak'),
 	        'stat'=>'Unset'
 	    );
 	    
@@ -1053,7 +1057,8 @@ class Crud extends CI_Controller{
 	    
 	    $data = array(
 	        'nama'=>$this->input->post('nama'),
-	        'testi'=>$this->input->post('desc')
+	        'testi'=>$this->input->post('desc'),
+	        'kontak'=>$this->input->post('kontak')
 	        );
 	    
 	    $q = $this->m->update('testimoni',$data,array('id'=>$id));
@@ -1557,6 +1562,24 @@ class Crud extends CI_Controller{
 		}
 
 		echo json_encode($msg);
+	}
+
+	public function resizeImg($file,$path){
+
+		$sp = $_SERVER['DOCUMENT_ROOT'].$path.$file;
+		$config = array(
+			"image_library" => "gd2",
+			"source_image" => $sp,
+			"new_image" => $sp,
+			"maintain_ratio" => TRUE,
+			"quality" => '70%'
+		);
+
+		$this->load->library('image_lib',$config);
+
+		$this->image_lib->resize();
+
+		$this->image_lib->clear();
 	}
 }
 

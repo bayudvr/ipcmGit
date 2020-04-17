@@ -978,7 +978,8 @@ class Data extends CI_Controller{
 						<th>No</th>
 						<th>Foto</th>
 						<th>Nama</th>
-						<th>Testimonial</th>
+						<th>Deskripsi</th>
+						<th>Kontak</th>
 						<th>Stat</th>
 						<th>Opsi</th>
 					</tr>
@@ -994,7 +995,8 @@ class Data extends CI_Controller{
 		                    <button onclick="editImg('.$d->id.')" class="btn btn-outline-success">Ubah<?button>
 		                </td>
 		                <td>'.$d->nama.'</td>
-		                <td>'.word_limiter($d->testi,10).'</td>';
+		                <td>'.word_limiter($d->testi,10).'</td>
+		                <td>+'.$d->kontak.'</td>';
 		    if($d->stat != 'Show'){
 		        
 		        $data.='    <td><i class="badge badge-dark">'.$d->stat.'</i></td>
