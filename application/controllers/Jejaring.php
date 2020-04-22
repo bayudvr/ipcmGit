@@ -31,7 +31,7 @@ class Jejaring extends CI_Controller
 	{
 		$this->load->library('pagination');
 
-		$config['base_url'] = site_url('artikel/list');
+		$config['base_url'] = site_url('jejaring/list');
 		$config['total_rows'] = $this->db->where('stat','Show')->from('testimoni')->count_all_results();
 		$config['per_page'] = 5;
 		$config['uri_segment'] = 3;
