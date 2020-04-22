@@ -818,12 +818,16 @@ class Form extends CI_Controller{
 				<form id="myForm" enctype="multipart/form-data" method="POST" class="mt-5">
 					<center>
 						<div class="form-group row">
-							<label for="nama" class="label-control col-md-3">Nama Testimon</label>
+							<label for="nama" class="label-control col-md-3">Nama Jejaring</label>
 							<input type="text" name="nama" id="nama" placeholder="Nama testimon..." class="form-control col-md-9">
 						</div>
 						<div class="form-group">
-							<label for="deskripsi" class="label-control">Deskripsi Produk</label>
+							<label for="deskripsi" class="label-control">Deksripsi Jejaring</label>
 							<textarea name="desc" id="desc" class="form-control" rows="10"></textarea>
+						</div>
+						<div class="form-group row">
+							<label for="nama" class="label-control col-md-3">Nomor WA Jejaring</label>
+							<input type="text" name="kontak" id="kontak" placeholder="628xxx" value="" class="form-control col-md-9">
 						</div>
 						<div class="form-group row">
 							<label class="label-control col-md-3">Foto Testimon</label>
@@ -849,8 +853,12 @@ class Form extends CI_Controller{
     					<center>
     					    <input type="hidden" name="id" id="id" value="'.$d->id.'">
     						<div class="form-group row">
-    							<label for="nama" class="label-control col-md-3">Nama Testimon</label>
-    							<input type="text" name="nama" id="nama" placeholder="Nama testimon..." value="'.$d->nama.'" class="form-control col-md-9">
+    							<label for="nama" class="label-control col-md-3">Nama Jejaring</label>
+    							<input type="text" name="nama" id="nama" placeholder="Nama jejaring..." value="'.$d->nama.'" class="form-control col-md-9">
+    						</div>
+    						<div class="form-group row">
+    							<label for="nama" class="label-control col-md-3">Nomor WA Jejaring</label>
+    							<input type="text" name="kontak" id="kontak" placeholder="628xxx" value="'.$d->kontak.'" class="form-control col-md-9">
     						</div>
     						<div class="form-group">
     							<label for="deskripsi" class="label-control">Deskripsi Produk</label>
