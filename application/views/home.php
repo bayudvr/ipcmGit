@@ -569,7 +569,7 @@
 										<img src="<?php echo base_url() ?>assets/upload/artikel/<?php echo $bl->foto; ?>" style="object-fit:contain; height:285px;" alt="image" />
 									</div>
 									<div class="right_blog_content">
-										<span class="agri_blog_date"><?php echo $bl->tanggal; ?></span>
+										<span class="agri_blog_date"><?php echo tanggal_indo($bl->tanggal); ?></span>
 										<h3><a href="#"><?php echo word_limiter($bl->judul,5); ?></a></h3>
 										<p><?php echo word_limiter($bl->desc,35); ?></p>
 										<a href="<?php echo base_url() ?>artikel/read?k=<?php echo urlencode($bl->judul); ?>" target="_blank">read more <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
@@ -663,7 +663,7 @@
 										<img src="<?php echo base_url() ?>assets/upload/artikel/<?php echo $ar->foto; ?>" style="width: 70px; object-fit: contain;" />
 									</div>
 									<div class="footer_post_content">
-										<span><?php echo $ar->tanggal; ?></span>
+										<span><?php echo tanggal_indo($ar->tanggal); ?></span>
 										<a href="<?php echo base_url() ?>artikel/?k=<?php echo urlencode($ar->judul); ?>"><p><?php echo $ar->judul; ?></p></a>
 									</div>
 								</div>
