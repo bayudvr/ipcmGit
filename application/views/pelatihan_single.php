@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>List Jejaring</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php foreach($pelatihan as $d){ echo $d->nama; } ?></title>
 
-	<?php $this->load->view('layout/plugin.php'); ?>
+    <?php $this->load->view('layout/plugin.php'); ?>
 
-	<style type="text/css">
+    <style type="text/css">
 		
 		.dropdown-menu{
 
@@ -86,7 +88,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-4">
 					<div class="breadcrumb_inner">
-						<h3>List Jejaring</h3>
+						<h3><?php foreach($pelatihan as $d){ echo $d->nama;} ?></h3>
 					</div>
 				</div>
 			</div>
@@ -94,33 +96,24 @@
 		<div class="breadcrumb_block" style="background: #E52929">
 			<ul>
 				<li><a href="<?php echo base_url() ?>" title="">home</a></li>
-				<li>List Jejaring</li>
+				<li><?php foreach($pelatihan as $d){ echo $d->nama; } ?></li>
 			</ul>
 		</div>
 	</div>
-	<div class="dairy_blog_wrapper clv_section">
+	<div class="blog_sidebar_wrapper clv_section blog_single_wrapper">
 		<div class="container">
-			<div class="dairy_blog_section">
-				<?php foreach($jejaring as $bl){ ?>
-				
-				<div class="right_blog_section">
-					<div class="right_blog_block">
-						<div class="right_blog_image pl-2">
-							<img src="<?php echo base_url() ?>assets/upload/jejaring/<?php echo $bl->foto; ?>" style="object-fit:contain; width:300px; height: 200px;" alt="image" />
+			<div class="row">
+				<div class="col-lg-12 col-md-12">
+					<div class="blog_left_section">
+						<div class="blog_section">
+							<div class="agri_blog_image">
+								<img src="<?php echo base_url() ?>assets/upload/pelatihan/<?php foreach($pelatihan as $d){ echo $d->foto; } ?>" style="height: 410px; object-fit: contain;" alt="image">
+							</div>
+							<div class="agri_blog_content">
+								<h3><?php foreach($pelatihan as $d){ echo $d->nama; } ?></h3>
+								<p class="mt-3"><?php foreach($pelatihan as $d){ echo $d->desc; } ?></p>
+							</div>
 						</div>
-						<div class="right_blog_content">
-							<h3><a href="#"><?php echo ($bl->nama); ?></a></h3>
-							<p><?php echo word_limiter($bl->testi,10); ?></p>
-							<a href="<?php echo base_url() ?>jejaring/?k=<?php echo urlencode($bl->nama); ?>" target="_blank">read more <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
-						</div>
-					</div>
-				</div>
-
-				<?php } ?>
-
-				<div class="row">
-					<div class="col">
-						<?php echo $pagination; ?>
 					</div>
 				</div>
 			</div>
@@ -189,7 +182,6 @@
 		</div>
 	</div>
 </div>
-
 </body>
 </html>
 <div class="modal modal-info fade" id="registrasi" tabindex="1" role="dialog" aria-hidden="true">

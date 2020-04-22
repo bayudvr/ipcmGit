@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>List Jejaring</title>
+	<title>List Pelatihan</title>
 
 	<?php $this->load->view('layout/plugin.php'); ?>
 
@@ -86,7 +86,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-4">
 					<div class="breadcrumb_inner">
-						<h3>List Jejaring</h3>
+						<h3>List Pelatihan</h3>
 					</div>
 				</div>
 			</div>
@@ -94,14 +94,14 @@
 		<div class="breadcrumb_block" style="background: #E52929">
 			<ul>
 				<li><a href="<?php echo base_url() ?>" title="">home</a></li>
-				<li>List Jejaring</li>
+				<li>List Pelatihan</li>
 			</ul>
 		</div>
 	</div>
 	<div class="dairy_blog_wrapper clv_section">
 		<div class="container">
 			<div class="dairy_blog_section">
-				<?php foreach($jejaring as $bl){ ?>
+				<?php foreach($pelatihan as $bl){ ?>
 				
 				<div class="right_blog_section">
 					<div class="right_blog_block">
@@ -110,7 +110,7 @@
 						</div>
 						<div class="right_blog_content">
 							<h3><a href="#"><?php echo ($bl->nama); ?></a></h3>
-							<p><?php echo word_limiter($bl->testi,10); ?></p>
+							<p><?php echo word_limiter($bl->desc,10); ?></p>
 							<a href="<?php echo base_url() ?>jejaring/?k=<?php echo urlencode($bl->nama); ?>" target="_blank">read more <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
 						</div>
 					</div>

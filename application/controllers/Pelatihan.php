@@ -1,38 +1,31 @@
-<?php /**
- * 
- */
+<?php defined('BASEPATH') or exit('No direct path allowed');
 
-defined('BASEPATH') or exit('No direct script allowed');
-
-class Jejaring extends CI_Controller
+class Pelatihan extends CI_Controller
 {
-	
-	public function __construct()
-	{
-		parent::__construct();
+    public function __construct()
+    {
+        parent::__construct();
 
-		$this->load->model('M_model','m',true);
+        $this->load->model('M_model','m',true);
+    }
 
-		$this->load->helper(array('string','text'));		
-	}
-
-	public function index()
-	{
-		$nama = urldecode($_GET['k']);
+    public function index()
+    {
+        $nama = urldecode($_GET['k']);
 
 		$data['produk'] = $this->m->where('produk',array('stat'=>'Ready'));
-		$data['jejaring'] = $this->m->where('testimoni',array('nama'=>urldecode($nama)));
+		$data['pelatihan'] = $this->m->where('pelatihan',array('nama'=>urldecode($nama)));
 		$data['artikel'] = $this->m->single('SELECT * FROM artikel where stat = "Show" order by tanggal desc limit 3');
 		
-		$this->load->view('jejaring_single',$data);
-	}
+		$this->load->view('pelatihan_single',$data);
+    }
 
-	public function list()
+    public function list()
 	{
 		$this->load->library('pagination');
 
-		$config['base_url'] = site_url('jejaring/list');
-		$config['total_rows'] = $this->db->where('stat','Show')->from('testimoni')->count_all_results();
+		$config['base_url'] = site_url('pelatihan/list');
+		$config['total_rows'] = $this->db->where('stat','Show')->from('pelatihan')->count_all_results();
 		$config['per_page'] = 5;
 		$config['uri_segment'] = 3;
 		$choice = $config["total_rows"] / $config["per_page"];
@@ -62,9 +55,10 @@ class Jejaring extends CI_Controller
 		$data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 		$data['pagination'] = $this->pagination->create_links();
 		$data['produk'] = $this->m->where('produk',array('stat'=>'Ready'));
-		$data['jejaring'] = $this->m->where('testimoni',array('stat'=>'Show'));
+		$data['pelatihan'] = $this->m->where('pelatihan',array('stat'=>'Show'));
 		$data['artikel'] = $this->m->single('SELECT * FROM artikel where stat = "Show" order by tanggal desc limit 3');
 
-		$this->load->view('jejaring_all',$data);
+		$this->load->view('pelatihan_all',$data);
 	}
-} 
+}
+?>
