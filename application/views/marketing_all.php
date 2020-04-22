@@ -253,10 +253,8 @@
 					}else if(response == '"fail"'){
 						swal('Error','Ada kesalahan sistem saat mendaftar, coba beberapa saaat lagi','error');
 					}else if(response == '"done"'){
-						swal('Done..!','Pendaftaran berhasil, silahkan cek email untuk verifikasi','success').then(function(){
-
-							$('#registrasi').modal('hide');
-						});
+						toastr.success('Pendaftaran berhasil, silahkan cek email untuk verifikasi','Done..!');
+						$('#registrasi').modal('hide');
 					}
 				}
 			});

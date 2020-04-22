@@ -17,7 +17,7 @@ class Pelatihan extends CI_Controller
 		$data['pelatihan'] = $this->m->where('pelatihan',array('nama'=>urldecode($nama)));
 		$data['artikel'] = $this->m->single('SELECT * FROM artikel where stat = "Show" order by tanggal desc limit 3');
 		
-		$this->load->view('pelatihan',$data);
+		$this->load->view('pelatihan_single',$data);
     }
 }
 ?>
