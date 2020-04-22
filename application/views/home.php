@@ -315,6 +315,39 @@
 			</div>
 		</div>
 
+		<div id="pelatihan" class="py-5" style="background: #E1E1E1; color: black;">
+			<div class="clv_selection">
+				<div class="container row">
+					<div class="col-lg-6 col-md-6">
+						<div class="service_content">
+							<div class="service_heading">
+								<h3 class="ml-3">Pelatihan</h3>
+								<div class="clv_underline ml-3"><img src="<?php echo base_url() ?>assets/user/images/dairy_underline2.png" alt="image" /></div>
+							</div>
+						</div>
+					</div>
+					<section class="pelatihan slider mb-5 col-md-6 col-lg-6">
+						<?php foreach($pelatihan as $ph){ ?>
+
+						<div class="slide">
+							<div>
+								<img src="<?php echo base_url() ?>assets/upload/pelatihan/<?php echo $ph->foto; ?>" style="height: 150px; width: 150px; object-fit: cover; border-radius: 20px;" class="mb-1">
+							</div>
+							<div>
+								<center>
+									<h5 style="width: 100%;" class="mb-2"><?php echo $ph->nama; ?></h5>
+									<p style="width: 100%;"><?= tanggal_indo($ph->waktu); ?></p>
+									<a href="<?php echo base_url() ?>pelatihan/?k=<?php echo urlencode($ph->nama); ?>" class="btn btn-info" target="_blank"><i class="fa fa-eye"></i></a>
+								</center>
+							</div>
+						</div>
+
+						<?php } ?>
+					</section>
+				</div>
+			</div>
+		</div>
+
 		<div id="jejaring"  style="background:url('./assets/img/JejaringBG.jpg'); background-size:cover;">
 			<div class="dairy_service_wrapper clv_section" style="background:rgba(0,0,0,.7);background-size:cover;">
 				<div class="container row">
@@ -813,6 +846,27 @@
 				}
 			}]
 		});
+
+		$('.pelatihan').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 11000,
+			arrows: false,
+			dots: false,
+			pauseOnHover: false,
+			responsive: [{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			}, {
+				breakpoint: 520,
+				settings: {
+					slidesToShow: 1
+				}
+			}]
+		});
 	});
 	
 	function daftar(){
@@ -843,3 +897,25 @@
 		});
 	}
 </script>
+<?php
+	function tanggal_indo($tanggal){
+		$bulan = array (
+			1 =>   'Januari',
+			'Februari',
+			'Maret',
+			'April',
+			'Mei',
+			'Juni',
+			'Juli',
+			'Agustus',
+			'September',
+			'Oktober',
+			'November',
+			'Desember'
+		);
+
+		$pecahkan = explode('-', $tanggal);
+
+		return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+	}
+?>

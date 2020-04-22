@@ -31,6 +31,7 @@ class Home extends CI_Controller{
 		$tanggal = $this->m->single('select curdate() as tgl');
 		foreach($tanggal as $t){ $tgl = $t->tgl; }
 		$data['visit'] = $this->m->where('visit',array('tanggal'=>$tgl));
+		$data['pelatihan'] = $this->m->where('pelatihan',array('stat'=>'Show'));
 
 		$this->load->view('home',$data);
 	}
