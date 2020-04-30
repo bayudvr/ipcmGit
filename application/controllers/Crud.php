@@ -183,6 +183,9 @@ class Crud extends CI_Controller{
 		}
 
 		move_uploaded_file($_FILES['foto']['tmp_name'], $des);
+
+		$this->resizeImg($new_name,'./assets/upload/fotoDiri/');
+
 		$q = $this->m->update('user',array('pas_foto'=>$new_name),array('id'=>$id));
 
 		$msg = 'fail';
@@ -216,6 +219,8 @@ class Crud extends CI_Controller{
 		}
 
 		move_uploaded_file($_FILES['foto']['tmp_name'], $des);
+
+		$this->resizeImg($new_name,'./assets/upload/fotoKlinik/');
 		$q = $this->m->update('user',array('foto_klinik'=>$new_name),array('id'=>$id));
 
 		$msg = 'fail';
@@ -426,6 +431,8 @@ class Crud extends CI_Controller{
 		}
 
 		move_uploaded_file($_FILES['foto']['tmp_name'], $des);
+
+		$this->resizeImg($new_name,'./assets/upload/pembayaran/');
 
 		return $new_name;
 	}
@@ -719,7 +726,8 @@ class Crud extends CI_Controller{
 		}
 
 		move_uploaded_file($_FILES['foto']['tmp_name'], $des);
-		$this->resizeImg($new_name,'/assets/upload/slider/');
+
+		$this->resizeImg($new_name,'./assets/upload/slider/');
 
 		$qu = $this->m->update('slider',array('foto'=>$new_name),array('id'=>$id));
 
@@ -848,6 +856,8 @@ class Crud extends CI_Controller{
 		if($q == true){
 
 			move_uploaded_file($_FILES['foto']['tmp_name'], $des);
+
+			$this->resizeImg($new_name,'./assets/upload/produk/');
 
 			$q = $this->m->insert('galeri_produk',array('kode_produk'=>$kode,'foto'=>$new_name));
 
@@ -983,7 +993,7 @@ class Crud extends CI_Controller{
 		$cek = $this->m->where('galeri',array('id'=>$id));
 
 		foreach($cek as $c){
-			$path = './assets/upload/fotoDiri/'.$c->foto;
+			$path = './assets/upload/galeri/'.$c->foto;
 		}
 
 		if(is_file($path)){
@@ -1025,6 +1035,8 @@ class Crud extends CI_Controller{
 		$des = './assets/upload/galeri/'.$new_name;
 
 		move_uploaded_file($_FILES['foto']['tmp_name'],$des);
+
+		$this->resizeImg($new_name,'./assets/upload/galeri/');
 
 		return $new_name;
 	}
@@ -1123,6 +1135,8 @@ class Crud extends CI_Controller{
 
 		move_uploaded_file($_FILES['foto']['tmp_name'],$des);
 
+		$this->resizeImg($new_name,'./assets/upload/jejaring/');
+
 		return $new_name;
 	}
 	
@@ -1186,6 +1200,8 @@ class Crud extends CI_Controller{
 		$des = './assets/upload/banner/'.$new_name;
 
 		move_uploaded_file($_FILES['banner']['tmp_name'],$des);
+
+		$this->resizeImg($new_name,'./assets/upload/banner/');
 
 		return $new_name;
 	}
@@ -1347,6 +1363,8 @@ class Crud extends CI_Controller{
 
 		move_uploaded_file($_FILES['foto']['tmp_name'],$des);
 
+		$this->resizeImg($new_name,'./assets/upload/fotoTim/');
+
 		return $new_name;
 	}
 
@@ -1444,6 +1462,8 @@ class Crud extends CI_Controller{
 		$des = './assets/upload/artikel/'.$new_name;
 
 		move_uploaded_file($_FILES['foto']['tmp_name'],$des);
+
+		$this->resizeImg($new_name,'./assets/upload/artikel/');
 
 		return $new_name;
 	}
@@ -1547,6 +1567,8 @@ class Crud extends CI_Controller{
 
 		move_uploaded_file($_FILES['foto']['tmp_name'],$des);
 
+		$this->resizeImg($new_name,'./assets/upload/pelatihan/');
+
 		return $new_name;
 	}
 
@@ -1566,16 +1588,18 @@ class Crud extends CI_Controller{
 
 	public function resizeImg($file,$path){
 
-		$sp = $_SERVER['DOCUMENT_ROOT'].$path.$file;
+		$sp = $path.$file;
 		$config = array(
 			"image_library" => "gd2",
 			"source_image" => $sp,
-			"new_image" => $sp,
+			"new_image" => $path,
 			"maintain_ratio" => TRUE,
-			"quality" => '70%'
+			"width" => "500"
 		);
 
-		$this->load->library('image_lib',$config);
+		$this->load->library('image_lib');
+
+		$this->image_lib->initialize($config);
 
 		$this->image_lib->resize();
 

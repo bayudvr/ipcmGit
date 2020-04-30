@@ -220,6 +220,7 @@
 					<ul class="navbar-nav ml-auto" id="topnav">
 					  	<li class="py-2 mr-5"><a href="<?php echo base_url() ?>">Beranda</a></li>
 						<li class="py-2 mr-5"><a href="#tentang">Tentang kami</a></li>
+						<li class="py-2 mr-5"><a href="#pelatihan">Pelatihan</a></li>
 						<li class="py-2 mr-5"><a href="#pelayanan">Pelayanan</a></li>
 						<li class="py-2 mr-5"><a href="#galeri">Galeri</a></li>
 						<li class="py-2 mr-5"><a href="<?php echo base_url() ?>#mtools">COVID-19</a></li>

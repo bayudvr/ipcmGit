@@ -11,6 +11,19 @@ class Data extends CI_Controller{
 		$this->load->helper(array('string','text','date'));
 	}
 
+	// Landing Page Data
+
+	public function landing_slider(){
+		
+		$q = $this->m->where('slider',['stat' => 'Show']);
+		$q1 = $$this->m->single('select * from slider where stat = "Show" limit 1');
+		$q2 = $this->m->single('select count(id) as jml from slider where stat = "Show"');
+
+		foreach($q as $d){
+
+		}
+	}
+
 	/*Admin Data*/
 
 	public function anggota(){
