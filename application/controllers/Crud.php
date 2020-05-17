@@ -682,8 +682,6 @@ class Crud extends CI_Controller{
 
 		move_uploaded_file($_FILES['foto']['tmp_name'], $des);
 
-		$this->resizeImg($new_name,'./assets/upload/slider/');
-
 		$data = array(
 			'foto'=>$new_name,
 			'judul'=>$this->input->post('judul'),
@@ -726,8 +724,6 @@ class Crud extends CI_Controller{
 		}
 
 		move_uploaded_file($_FILES['foto']['tmp_name'], $des);
-
-		$this->resizeImg($new_name,'./assets/upload/slider/');
 
 		$qu = $this->m->update('slider',array('foto'=>$new_name),array('id'=>$id));
 
