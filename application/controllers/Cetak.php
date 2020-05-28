@@ -37,7 +37,7 @@ class Cetak extends CI_Controller{
 			}
 		}
 
-		file_put_contents("assets/upload/kartuAnggota/".$foto, $image);
+			
 
 		$ubah = $this->m->update('user',array('foto_kartu'=>$foto),array('id'=>$id));
 
